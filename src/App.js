@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const TOTAL_SECONDS = 5400; // 1 hour 30 minutes
+  const TOTAL_SECONDS = 4380; // 1 hour 13 minutes
   const [timeLeft, setTimeLeft] = useState(TOTAL_SECONDS);
   const [isRunning, setIsRunning] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -103,7 +103,7 @@ function App() {
                 Push Pull Commit
               </h1>
               <p className="text-lg text-white/70">Hackathon</p>
-              <p className="text-sm text-white/50 mt-4">1.5 hours left</p>
+              <p className="text-sm text-white/50 mt-4">1 hour 13 minutes left</p>
             </div>
 
             {/* Timer Cards */}
