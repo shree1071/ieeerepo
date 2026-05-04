@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const TOTAL_SECONDS = 25200; // 7 hours
+  const TOTAL_SECONDS = 5400; // 1 hour 30 minutes
   const [timeLeft, setTimeLeft] = useState(TOTAL_SECONDS);
   const [isRunning, setIsRunning] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [lastBonusTime, setLastBonusTime] = useState(TOTAL_SECONDS);
 
   useEffect(() => {
     let interval = null;
@@ -16,7 +17,16 @@ function App() {
             setIsRunning(false);
             return 0;
           }
-          return prev - 1;
+          
+          const newTime = prev - 1;
+          
+          // Check if 30 minutes have passed since last bonus
+          if (lastBonusTime - newTime >= 1800) { // 1800 seconds = 30 minutes
+            setLastBonusTime(newTime);
+            return newTime + 1500; // Add 25 minutes (1500 seconds)
+          }
+          
+          return newTime;
         });
       }, 1000);
     }
@@ -24,7 +34,7 @@ function App() {
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isRunning, timeLeft]);
+  }, [isRunning, timeLeft, lastBonusTime]);
 
   const formatTime = (seconds) => {
     const h = Math.floor(seconds / 3600);
@@ -38,6 +48,7 @@ function App() {
   const handleReset = () => {
     setIsRunning(false);
     setTimeLeft(TOTAL_SECONDS);
+    setLastBonusTime(TOTAL_SECONDS);
   };
 
   const toggleFullscreen = () => {
@@ -75,8 +86,8 @@ function App() {
         {isTimeUp ? (
           <div className="text-center py-12">
             <div className="text-8xl mb-8">🎉</div>
-            <h2 className="text-6xl font-bold text-white mb-4">Time's Up!</h2>
-            <p className="text-xl text-white/80">Amazing work, hackers!</p>
+            <h2 className="text-6xl font-bold text-white mb-4">Congratulations!</h2>
+            <p className="text-xl text-white/80">You've completed the hackathon!</p>
           </div>
         ) : (
           <>
@@ -92,6 +103,7 @@ function App() {
                 Push Pull Commit
               </h1>
               <p className="text-lg text-white/70">Hackathon</p>
+              <p className="text-sm text-white/50 mt-4">1.5 hours left</p>
             </div>
 
             {/* Timer Cards */}
