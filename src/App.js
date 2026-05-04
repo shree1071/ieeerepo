@@ -68,15 +68,10 @@ function App() {
 
   return (
     <div 
-      className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center p-16"
-      style={{ 
-        backgroundImage: 'url(/final.jpg)',
-        backgroundSize: 'cover',
-        imageRendering: 'high-quality'
-      }}
+      className="min-h-screen bg-black flex items-center justify-center p-16"
     >
       {/* Glassmorphism Card on Right Side */}
-      <div className="w-full max-w-2xl bg-white/5 backdrop-blur-md rounded-[3rem] p-12 shadow-2xl border border-white/10">
+      <div className="w-full max-w-6xl bg-white/5 backdrop-blur-md rounded-[3rem] p-16 shadow-2xl border border-white/10">
         {isTimeUp ? (
           <div className="text-center py-12">
             <div className="text-8xl mb-8">🎉</div>
@@ -100,35 +95,35 @@ function App() {
             </div>
 
             {/* Timer Cards */}
-            <div className="flex items-end justify-center gap-6 mb-10">
+            <div className="flex items-end justify-center gap-8 mb-10">
               {/* Hours */}
               <div className="text-center">
-                <div className="bg-white/15 backdrop-blur-sm rounded-3xl px-10 py-8 shadow-xl border border-white/20 mb-3">
-                  <div className="text-7xl font-bold text-white tabular-nums">
+                <div className="bg-white/15 backdrop-blur-sm rounded-3xl px-16 py-12 shadow-xl border border-white/20 mb-4">
+                  <div className="text-9xl font-bold text-white tabular-nums">
                     {time.h}
                   </div>
                 </div>
-                <p className="text-sm text-white/70 tracking-[0.2em] uppercase font-light">Hours</p>
+                <p className="text-lg text-white/70 tracking-[0.2em] uppercase font-light">Hours</p>
               </div>
 
               {/* Minutes */}
               <div className="text-center">
-                <div className="bg-white/15 backdrop-blur-sm rounded-3xl px-10 py-8 shadow-xl border border-white/20 mb-3">
-                  <div className="text-7xl font-bold text-white tabular-nums">
+                <div className="bg-white/15 backdrop-blur-sm rounded-3xl px-16 py-12 shadow-xl border border-white/20 mb-4">
+                  <div className="text-9xl font-bold text-white tabular-nums">
                     {time.m}
                   </div>
                 </div>
-                <p className="text-sm text-white/70 tracking-[0.2em] uppercase font-light">Minutes</p>
+                <p className="text-lg text-white/70 tracking-[0.2em] uppercase font-light">Minutes</p>
               </div>
 
               {/* Seconds */}
               <div className="text-center">
-                <div className="bg-white/15 backdrop-blur-sm rounded-3xl px-10 py-8 shadow-xl border border-white/20 mb-3">
-                  <div className="text-7xl font-bold text-white tabular-nums">
+                <div className="bg-white/15 backdrop-blur-sm rounded-3xl px-16 py-12 shadow-xl border border-white/20 mb-4">
+                  <div className="text-9xl font-bold text-white tabular-nums">
                     {time.s}
                   </div>
                 </div>
-                <p className="text-sm text-white/70 tracking-[0.2em] uppercase font-light">Seconds</p>
+                <p className="text-lg text-white/70 tracking-[0.2em] uppercase font-light">Seconds</p>
               </div>
             </div>
 
