@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const TOTAL_SECONDS = 28800; // 8 hours
+  const TOTAL_SECONDS = 25200; // 7 hours
   const [timeLeft, setTimeLeft] = useState(TOTAL_SECONDS);
   const [isRunning, setIsRunning] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
